@@ -1,0 +1,102 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --color-rose: #e8577a;
+  --color-rose-light: #fff0f3;
+  --color-rose-muted: #f7c5d0;
+  --color-lavender: #9b8fd9;
+  --color-sage: #5dbe9f;
+  --color-amber: #e8a44a;
+  --color-graphite: #1e1523;
+  --color-muted: #7a6b7e;
+  --color-surface: #ffffff;
+  --color-bg: #faf7f8;
+  --color-border: #ede8eb;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--color-bg);
+}
+
+body {
+  margin: 0;
+  color: var(--color-graphite);
+  background: var(--color-bg);
+}
+
+button,
+a,
+input,
+select,
+textarea {
+  outline-color: var(--color-rose);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-card border border-border bg-surface shadow-card;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn bg-rose px-4 py-2 text-sm font-semibold text-white transition active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-rose focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn border border-rose-muted bg-white px-4 py-2 text-sm font-semibold text-rose transition hover:bg-rose-light active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-rose focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60;
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center justify-center gap-2 rounded-btn px-3 py-2 text-sm font-medium text-muted transition hover:bg-rose-light hover:text-graphite active:scale-[0.97] focus-visible:ring-2 focus-visible:ring-rose focus-visible:ring-offset-2;
+  }
+
+  .field {
+    @apply w-full rounded-input border border-border bg-white px-3 py-2 text-sm text-graphite focus:border-rose focus:ring-2 focus:ring-rose/20;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid var(--color-rose);
+  background: white;
+  cursor: pointer;
+}
+
+input[type="range"]::-moz-range-thumb {
+  width: 18px;
+  height: 18px;
+  border-radius: 999px;
+  border: 2px solid var(--color-rose);
+  background: white;
+  cursor: pointer;
+}
