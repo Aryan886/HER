@@ -41,3 +41,10 @@ app.include_router(summary.router)
 @app.get("/health")
 async def health_check() -> dict[str, str]:
     return {"status": "ok", "app": "HER API"}
+
+
+@app.get("/seed-demo")
+async def seed_demo_endpoint():
+    from scripts.seed_demo import main as seed_main
+    await seed_main()
+    return {"status": "seeded"}
